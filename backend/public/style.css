@@ -1,0 +1,362 @@
+/* Base Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.inkblot-background {
+  background-image: url('inkblot.jpeg'); /* Update the path if needed */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff; /* Overrides default body text color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Improves readability */
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  background-color: #f5f5f5;
+  color: #2c2c2c;
+  line-height: 1.6;
+  padding: 20px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #111;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #1e1e1e;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a:focus {
+  outline: 2px solid #007bff; /* Blue outline for focus */
+  outline-offset: 2px; /* Space between outline and element */
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  max-width: 350px;
+  width: 100%;
+  background-color: #fff;
+  color: #2c2c2c;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button:focus {
+  outline: 2px solid #007bff; /* Blue outline for focus */
+  outline-offset: 2px; /* Space between outline and element */
+}
+
+/* Book Grid Layout */
+.book-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.book-grid::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.book-card {
+  width: 150px; /* Fixed width for each card */
+  height: auto;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  color: rgb(236, 235, 235); /* Set text color to black for all book cards */
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Book Cover */
+.book-cover {
+  height: 300px;
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover .book-cover img {
+  transform: scale(1.1);
+}
+
+/* Book Content */
+.book-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: rgb(245, 243, 243); /* Ensure title is black */
+}
+
+.book-author {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: rgb(252, 214, 214); /* Ensure author is black */
+}
+
+.book-description {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  color: rgb(255, 255, 255); /* Ensure description is black */
+}
+
+.book-learn-more {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+  align-self: flex-end;
+}
+
+/* Tags Section */
+.book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.book-tag {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+/* Bookmark Button */
+.bookmark-btn {
+  font-size: 1.2rem;
+  top: 1px;
+  right: 12px;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+.bookmark-btn:hover {
+  color: #f57c00; /* Change color on hover */
+}
+
+/* Book Modal */
+.book-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.book-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #faf6f6;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  .book-grid {
+    gap: 1.5rem;
+  }
+
+  .book-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  button {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .book-title {
+    font-size: 1rem;
+  }
+
+  .book-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .book-grid {
+    gap: 1.2rem;
+  }
+
+  .book-card {
+    height: 380px;
+  }
+
+  .book-cover {
+    height: 240px;
+  }
+
+  .book-content {
+    padding: 1rem;
+  }
+
+  .book-title {
+    font-size: 1rem;
+  }
+
+  .book-author,
+  .book-description {
+    font-size: 0.85rem;
+  }
+
+  .book-tag {
+    font-size: 0.7rem;
+  }
+}
+
+/* Spinner for loading state */
+.spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

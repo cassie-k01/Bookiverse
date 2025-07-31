@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Bookiverse</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Explore a vast collection of books in The Bookiverse. Search, bookmark, and discover your next read!" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="inkblot-background">
+  <header>
+    <h1>The Bookiverse</h1>
+    <nav>
+      <ul>
+        <li><a href="#search">Search</a></li>
+        <li><a href="#resultsContainer">Books</a></li>
+        <li><a href="#favoritesSection">Favorites</a></li>
+        <li><a href="#footer">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="search-container" id="search">
+    <input type="text" id="searchInput" placeholder="Search for a book..." aria-label="Search for a book" />
+    <button id="searchBtn" aria-label="Search books">Search</button>
+  </section>
+
+  <main>
+    <h2 class="hidden" id="resultsHeading">Book Results</h2>
+    <div class="book-grid" id="resultsContainer">
+      <!-- Book cards will be dynamically generated here -->
+    </div>
+  </main>
+
+  <section id="favoritesSection">
+    <h2>Favorites</h2>
+    <div id="favoritesContainer" class="book-grid">
+      <!-- Favorite books will be displayed here -->
+    </div>
+  </section>
+
+  <footer id="footer">
+    <p>Made with curiosity and caffeine ☕</p>
+    <p>&copy; 2025 The Bookiverse. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script> <!-- Updated script reference -->
+</body>
+</html>
